@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user-style.css' %}">
+</head>
+<body>
+    <div class="user-profile">
+        <div class="profile-header">
+            <div class="avatar">
+                <img src="https://via.placeholder.com/100" alt="User Avatar">
+            </div>
+            <h2>John Doe</h2>
+        </div>
+        <div class="user-details">
+            <p><strong>Pricing Plan:</strong> Basic</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+        </div>
+        <div class="change-password">
+            <h3>Change Password</h3>
+            <form>
+                <label for="old_password">Old Password:</label>
+                <input type="password" id="old_password" name="old_password">
+                <label for="new_password">New Password:</label>
+                <input type="password" id="new_password" name="new_password">
+                <label for="confirm_password">Confirm New Password:</label>
+                <input type="password" id="confirm_password" name="confirm_password">
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

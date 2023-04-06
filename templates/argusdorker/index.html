@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArgusDork</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <main>
+        <header class="header">
+            <div class="logo">ArgusDork</div>
+            <a href="#" class="join-btn">Join now</a>
+        </header>
+
+        <section class="search-section">
+            <div class="search-left">
+                <div id="search-left-up">
+                    <h1 id="argus-name">Argus The Dorker</h1>
+                    <p id="argus-desc">If you want to hide the label for the hcaptcha field in your Django form and keep the field hidden, you can modify the hcaptcha field in your form to use a HiddenInput widget instead of the default TextInput widget. You can also set the label of the field to an empty string or a custom label.</p>
+                </div>
+                <div id="search-left-down">
+                    <form action="{% url 'argusdorker:check_domain' %}" method="get" id="search-form">
+                        {% csrf_token %}
+                        <div class="search-container">
+                            {{ form.domain }}
+                            <button type="submit" class="search-button">Check</button>
+                        </div>
+                        <div class="search-captcha">
+                            {{ form.hcaptcha }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="search-right">
+            </div>
+        </section>
+    </main>
+
+
+    <section class="stats-section">
+      <div class="stat">
+        <h2 class="stat-number" id="dorks-count">0</h2>
+        <p class="stat-label">Google Dorks</p>
+      </div>
+      <div class="stat">
+        <h2 class="stat-number" id="urls-count">0</h2>
+        <p class="stat-label">URLs Found</p>
+      </div>
+      <div class="stat">
+        <h2 class="stat-number" id="domains-count">0</h2>
+        <p class="stat-label">Domains</p>
+      </div>
+    </section>
+    <script src="{% static 'js/animate-stats.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

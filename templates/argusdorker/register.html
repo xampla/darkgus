@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/register-style.css' %}">
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register</h2>
+        <form action="" method="POST" id="register-form">
+            {% csrf_token %}
+            <div class="form-group">
+                
+                {% for field in form %}
+                    {{ field.label_tag }}
+                    {{ field }}
+                    <div class="error-message" data-input-name="{{ field.html_name }}"></div>
+                {% endfor %}
+
+                <label>Choose a pricing plan:</label>
+                <select name="plan">
+                    <option value="basic">Basic</option>
+                    <option value="pro">Pro</option>
+                    <option value="enterprise">Enterprise</option>
+                </select>
+                <div class="form-group checkbox-container">
+                    <input type="checkbox" name="no_plan" id="no_plan">
+                    <label for="no_plan">Create an account without choosing a plan</label>
+                </div>
+                <button type="submit">Register</button>
+            </div>  
+        </form>
+    </div>
+    <script src="{% static 'js/register.js' %}"></script>
+</body>
+</html>
